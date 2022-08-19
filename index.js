@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const booksController = require('./controllers/books_Controller')
+var cors = require('cors')
 
 // const languages = express.Router()
 // const { Router } = require('express')
@@ -17,6 +18,8 @@ mongoose.connect(process.env.MONGO_URI, {
   )
 
 app.use(express.urlencoded({extended: true}))
+
+app.use(cors())
 
 //Root Index:
 app.get ('/', (req, res) => {
